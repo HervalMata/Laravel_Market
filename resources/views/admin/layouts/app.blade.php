@@ -29,10 +29,10 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-    @include('admin.layout.partials.header')
-    @include('admin.layout.partials.sidebar')
+    @include('admin.layouts.partials.header')
+    @include('admin.layouts.partials.sidebar')
     @yield('content')
-    @include('admin.layout.partials.footer')
+    @include('admin.layouts.partials.footer')
 </div>
 <!-- ./wrapper -->
 

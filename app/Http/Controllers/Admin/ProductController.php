@@ -64,12 +64,13 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $product
+     * @return Application|Factory|View
      */
-    public function show($id)
+    public function show($product)
     {
-        //
+        $product = $this->product->findOrFail($product);
+        return view('admin.products.view', compact('product'));
     }
 
     /**

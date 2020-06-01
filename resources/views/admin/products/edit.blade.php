@@ -3,7 +3,11 @@
     <div class="content-wrapper">
         <section class="content">
             <div class="container-fluid">
-    <h1>Atualizar Produto</h1>
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Atualizar Produto</h1>
+                    </div><!-- /.col -->
+                </div>
     <form action="{{ route('admin.products.update', ['product' => $product->id]) }}" method="post">
         @csrf
         @method('PUT')

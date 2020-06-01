@@ -3,6 +3,12 @@
     <div class="content-wrapper">
         <section class="content">
             <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Produtos</h1>
+                    </div><!-- /.col -->
+                </div>
+                @include('flash::message')
                 <a href="{{ route('admin.products.create') }}" class="btn btn-lg btn-success">Criar Produto</a>
                 <table class="table table-striped">
                     <thead>
@@ -21,6 +27,8 @@
                             <td>R$ {{number_format($p->price, 2, ',', '.')}}</td>
                             <td>
                                 <div class="btn-group">
+                                    <a href="{{ route('admin.products.show', ['product' => $p->id]) }}"
+                                       class="btn btn-sm btn-primary">Viasualizar</a>
                                     <a href="{{ route('admin.products.edit', ['product' => $p->id]) }}"
                                        class="btn btn-sm btn-warning">Editar</a>
                                     <form action="{{ route('admin.products.destroy', ['product' => $p->id]) }}" method="post">
