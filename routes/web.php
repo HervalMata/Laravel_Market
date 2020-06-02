@@ -26,6 +26,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
         Route::get('/', 'DashboardController@index')->name('dashboard');
         Route::resource('products', 'ProductController');
+        Route::resource('categories', 'CategoryController');
+        Route::post('photos/remove', 'ProductPhotoConntroller@removePhoto')->name('photo.remove');
     });
 });
 

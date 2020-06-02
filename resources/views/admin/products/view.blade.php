@@ -32,6 +32,17 @@
         </div>
 
         <div class="form-group">
+            <label>Categorias do Produto</label>
+            <select name="categories" id="" class="form-control" disabled>
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}"
+                            @if($product->categories->contains($category)) selected @endif
+                    >{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
             <label>Slug do Produto</label>
             <input type="text" name="slug" class="form-control" value="{{ $product->slug }}" disabled>
         </div>
