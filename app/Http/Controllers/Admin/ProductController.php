@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -53,7 +54,7 @@ class ProductController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $data = $request->all();
         $this->product->create($data);
@@ -92,7 +93,7 @@ class ProductController extends Controller
      * @param $product
      * @return RedirectResponse
      */
-    public function update(Request $request, $product)
+    public function update(ProductRequest $request, $product)
     {
         $data = $request->all();
         $product = $this->product->find($product);
