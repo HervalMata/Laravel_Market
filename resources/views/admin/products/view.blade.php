@@ -43,6 +43,28 @@
         </div>
 
         <div class="form-group">
+            <label>Cores do Produto</label>
+            <select name="colors[]" id="" class="form-control" disabled>
+                @foreach($colors as $color)
+                    <option value="{{$color->id}}" @if ($product->$color->contains($color))
+                    selected
+                        @endif>{{$color->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Materiais do Produto</label>
+            <select name="materials[]" id="" class="form-control" disabled>
+                @foreach($materials as $material)
+                    <option value="{{$material->id}}" @if ($product->$material->contains($material))
+                    selected
+                        @endif>{{$material->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
             <label>Slug do Produto</label>
             <input type="text" name="slug" class="form-control" value="{{ $product->slug }}" disabled>
         </div>

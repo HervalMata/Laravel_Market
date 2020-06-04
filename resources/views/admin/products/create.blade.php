@@ -67,18 +67,31 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Cores do Produto</label>
+                        <select name="colors[]" id="" class="form-control">
+                            @foreach($colors as $color)
+                                <option value="{{$color->id}}">{{$color->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Materiais do Produto</label>
+                        <select name="materials[]" id="" class="form-control">
+                            @foreach($materials as $material)
+                                <option value="{{$material->id}}">{{$material->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label>Fotos do Produto</label>
-                        <input type="file" name="photos[]" class="form-control @error('photos') is-invalid @enderror" multiple>
+                        <input type="file" name="photos[]" class="form-control @error('photos.*') is-invalid @enderror" multiple>
                         @error('photos')
                         <div class="invalid-feedback">
                             {{$message}}
                         </div>
                         @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>Slug do Produto</label>
-                        <input type="text" name="slug" class="form-control">
                     </div>
 
                     <div>

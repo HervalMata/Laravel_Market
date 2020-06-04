@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'HomeController@index');
+Route::get('/product/{slug}', 'HomeController@single')->name('product.single');
+Route::prefix('cart')->name('cart.')->group(function () {
+    Route::post('add', 'CartController@add')->name('add');
 });
+
 
 Route::get('admin/login', 'Admin\LoginController@showLoginForm');
 Route::post('admin/login', 'Admin\LoginController@login')->name('admin.login');

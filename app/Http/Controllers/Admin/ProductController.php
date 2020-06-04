@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
+use App\Models\Color;
+use App\Models\Material;
 use App\Models\Product;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -47,7 +49,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all('id', 'name');
-        return view('admin.products.create', compact('categories'));
+        $colors = Color::all('id', 'name');
+        $materials = Material::all('id', 'name');
+        return view('admin.products.create', compact('categories', 'colors', 'materials'));
     }
 
     /**
@@ -59,8 +63,11 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $data = $request->all();
+        $colors = $request->get('colors', null);
+        $materials = $request->get('materials', null);
         $this->product->create($data);
-        $this->product->categories()->sync($data['categories']);
+        $this->product->colors()->sync($colors);
+        $this->product->materials()->sync($materials);
         if ($request->hasFile('photos'))
         {
             $images = $this->imageUpload($request, 'image');
@@ -105,9 +112,18 @@ class ProductController extends Controller
     public function update(ProductRequest $request, $product)
     {
         $data = $request->all();
+        $colors = $request->get('colors', null);
+        $materials = $request->get('materials', null);
         $product = $this->product->find($product);
         $product->update($data);
-        $product->categories()->sync($data['categories']);
+        if (!is_null($colors))
+        {
+            $product->colors()->sync($colors);
+        }
+        if (!is_null($materials))
+        {
+            $product->materials()->sync($materials);
+        }
         if ($request->hasFile('photos'))
         {
             $images = $this->imageUpload($request, 'image');
