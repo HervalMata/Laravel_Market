@@ -41,11 +41,11 @@
                         </div>
                     </form> <!-- search-wrap .end// -->
                 </div> <!-- col.// -->
-                <div class="col-lg-5 col-sm-5 col-12">
+                <div class="col-lg-4 col-sm-6 col-12">
                     <div class="widgets-wrap float-md-right">
                         <div class="widget-header  mr-3">
-                            <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
-                            <span class="badge badge-pill badge-danger notify">0</span>
+                            <a href="{{route('cart.index')}}" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
+                            <span class="badge badge-pill badge-danger notify">{{array_sum(array_column(session()->get('cart'), 'amount'))}}</span>
                         </div>
                         <div class="widget-header icontext">
                             <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
