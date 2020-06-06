@@ -61,7 +61,7 @@
                                 </td>
                                 <td class="text-right">
                                     <a data-original-title="Salvar para lista de desejos" title="" href="" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
-                                    <a href="{{route('cart.remove', ['slug' => $c['slug'])}}" class="btn btn-light"> Remover</a>
+                                    <a href="{{route('cart.remove', ['slug' => $c['slug']])}}" class="btn btn-light"> Remover</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -128,7 +128,7 @@
                             <div class="alert alert-warning">Carrinho vazio!</div>
                         @endif
                         <div class="card-body border-top">
-                            <a href="#" class="btn btn-primary float-md-right"> Finalizar Pagamento <i class="fa fa-chevron-right"></i> </a>
+                            <a href="{{route('checkout.index')}}" class="btn btn-primary float-md-right"> Finalizar Pagamento <i class="fa fa-chevron-right"></i> </a>
                             <a href="{{route('cart.index')}}" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continuar Comprando </a>
                             <a href="{{route('cart.cancel')}}" class="btn btn-primary float-md-right"> Cancelar Compra <i class="fa fa-close"></i> </a>
                         </div>

@@ -45,7 +45,7 @@
                     <div class="widgets-wrap float-md-right">
                         <div class="widget-header  mr-3">
                             <a href="{{route('cart.index')}}" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
-                            <span class="badge badge-pill badge-danger notify">{{array_sum(array_column(session()->get('cart'), 'amount'))}}</span>
+                            <span class="badge badge-pill badge-danger notify">@if(!is_null(session()->get('cart')))  {{array_sum(array_column(session()->get('cart'), 'amount'))}} @else 0 @endif</span>
                         </div>
                         <div class="widget-header icontext">
                             <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>

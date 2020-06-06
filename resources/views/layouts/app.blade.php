@@ -12,6 +12,10 @@
 
     <!-- jQuery -->
     <script src="{{ asset('lib/jquery3.3.1/jquery-3.3.1.min.js') }}" type="text/javascript"></script>
+    <script src="{{asset('lib/popper1.14.6/popper.min.js') }}"></script>
+
+    <script src="{{asset('lib/holder/holder.min.js') }}"></script>
+    <link rel="stylesheet" href="{{asset('lib/caroussel/carousel.css') }}" />
 
     <!-- Bootstrap4 files-->
     <script src="{{ asset('lib/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
@@ -37,11 +41,13 @@
         });
         // jquery end
     </script>
+    @yield('styleshets')
 
 </head>
 <body>
 @include('layouts.partials.header')
 @yield('content')
 @include('layouts.partials.footer')
+@yield('scripts')
 </body>
 </html>

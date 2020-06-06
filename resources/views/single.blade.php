@@ -96,8 +96,8 @@
                         </div> <!-- row.// -->
                         <hr>
                         <a href="#" class="btn  btn-primary"> Compre Agora </a>
-                        <a href="#" class="btn  btn-outline-primary"> <i class="fas fa-shopping-cart"></i> Adicionar Para o
-                            carrinho </a>
+                        <button type="submit" class="btn  btn-outline-primary"> <i class="fas fa-shopping-cart"></i> Adicionar Para o
+                            carrinho </button>
                     </article> <!-- card-body.// -->
                     </form>
                 </aside> <!-- col.// -->
